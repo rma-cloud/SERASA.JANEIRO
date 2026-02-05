@@ -36,6 +36,16 @@
         .gradient-serasa {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
         }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -48,12 +58,13 @@
                     <i class="fa-solid fa-chart-pie text-rose-500 text-2xl"></i>
                     <span class="font-poppins font-bold text-xl tracking-tight">RAR | <span class="text-rose-400">SERASA</span></span>
                 </div>
-                <nav class="hidden md:flex space-x-10 h-full items-center text-xs font-bold uppercase tracking-widest">
+                <nav class="hidden md:flex space-x-8 h-full items-center text-[10px] font-bold uppercase tracking-widest">
                     <button onclick="showSection('resultados')" class="nav-btn tab-active px-2 py-7 transition-all duration-300 hover:text-rose-400" id="btn-resultados">Resultados</button>
-                    <button onclick="showSection('produtividade')" class="nav-btn px-2 py-7 transition-all duration-300 hover:text-rose-400" id="btn-produtividade">Produtividade</button>
+                    <button onclick="showSection('produtividade')" class="nav-btn px-2 py-7 transition-all duration-300 hover:text-rose-400" id="btn-produtividade">Produtividade Geral</button>
+                    <button onclick="showSection('ranking')" class="nav-btn px-2 py-7 transition-all duration-300 hover:text-rose-400" id="btn-ranking">Produtividade individual</button>
                     <button onclick="showSection('operacional')" class="nav-btn px-2 py-7 transition-all duration-300 hover:text-rose-400" id="btn-operacional">Operacional</button>
                 </nav>
-                <div class="text-xs font-semibold text-rose-300 hidden sm:block bg-rose-500/10 px-3 py-1 rounded-full">
+                <div class="text-[10px] font-bold text-rose-300 hidden sm:block bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">
                     JANEIRO/2026
                 </div>
             </div>
@@ -62,7 +73,7 @@
 
     <main class="flex-grow">
         
-        <!-- SEÇÃO: RESULTADOS (VISÃO GERAL) -->
+        <!-- SEÇÃO: RESULTADOS -->
         <section id="resultados" class="content-section active">
             <div class="gradient-serasa text-white py-20">
                 <div class="max-w-7xl mx-auto px-4">
@@ -72,9 +83,7 @@
             </div>
             
             <div class="max-w-7xl mx-auto px-4 py-12 -mt-10 space-y-8">
-                <!-- Cartões Principais -->
                 <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Encerramentos Totais -->
                     <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-gray-400 font-bold uppercase text-[10px] tracking-widest">Total de Encerramentos</span>
@@ -100,7 +109,6 @@
                         </div>
                     </div>
 
-                    <!-- Decisões do Mês -->
                     <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 md:col-span-2">
                         <div class="flex justify-between items-start mb-6">
                             <h3 class="text-lg font-bold text-indigo-900 flex items-center gap-2">
@@ -125,36 +133,28 @@
                                 <span class="text-[10px] font-bold text-amber-600 uppercase">Parcial c/ Ônus</span>
                             </div>
                         </div>
-                        <p class="mt-6 text-sm text-gray-500 italic leading-relaxed">
-                            <i class="fa-solid fa-bullseye text-indigo-400 mr-1"></i> O principal objetivo é o maior número de improcedências, meta atingida gradativamente.
-                        </p>
                     </div>
                 </div>
 
-                <!-- Nota Importante -->
-                <div class="bg-indigo-950 text-indigo-100 p-8 rounded-3xl shadow-lg relative overflow-hidden">
-                    <div class="relative z-10">
-                        <h4 class="font-bold mb-3 uppercase text-xs tracking-widest text-rose-400">Política de Acordos e Metas</h4>
-                        <p class="text-sm leading-relaxed opacity-90">
-                            A Serasa não possui meta de encerramento nem de acordo. Na prática, <strong>não realizamos acordos</strong>. A recomendação ocorre apenas em situações excepcionais (falha interna ou pós-sentença para economia), sendo registrados tecnicamente como decisão desfavorável.
-                        </p>
-                    </div>
-                    <i class="fa-solid fa-info-circle absolute right-[-20px] bottom-[-20px] text-indigo-900 text-9xl opacity-20"></i>
+                <div class="bg-indigo-950 text-indigo-100 p-8 rounded-3xl shadow-lg">
+                    <h4 class="font-bold mb-3 uppercase text-xs tracking-widest text-rose-400">Política de Acordos e Metas</h4>
+                    <p class="text-sm leading-relaxed opacity-90">
+                        A Serasa não possui meta de encerramento nem de acordo. Na prática, <strong>não realizamos acordos</strong>. A recomendação ocorre apenas em situações excepcionais, sendo registrados tecnicamente como decisão desfavorável.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO: PRODUTIVIDADE -->
+        <!-- SEÇÃO: PRODUTIVIDADE GERAL -->
         <section id="produtividade" class="content-section">
             <div class="bg-rose-900 text-white py-16">
                 <div class="max-w-7xl mx-auto px-4">
-                    <h2 class="text-4xl font-bold mb-2">Produtividade da Equipe</h2>
-                    <p class="text-rose-200">Volume de atividades concluídas e média por advogado</p>
+                    <h2 class="text-4xl font-bold mb-2">Produtividade Geral</h2>
+                    <p class="text-rose-200">Volume macro de atividades e audiências</p>
                 </div>
             </div>
             
             <div class="max-w-7xl mx-auto px-4 py-12 space-y-8">
-                <!-- Números Macro -->
                 <div class="grid md:grid-cols-4 gap-6">
                     <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-tighter mb-1">Total Concluídos</p>
@@ -169,63 +169,195 @@
                         <p class="text-3xl font-bold text-indigo-600">1.169</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
-                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-tighter mb-1">Despachos</p>
-                        <p class="text-3xl font-bold text-amber-600">2</p>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-tighter mb-1">Audiências</p>
+                        <p class="text-3xl font-bold text-amber-600">218</p>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Detalhamento Média -->
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-                        <h3 class="font-bold text-indigo-900 mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-user-tie text-rose-500"></i> Performance Individual (Média)
-                        </h3>
-                        <div class="space-y-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-indigo-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-user-tie text-rose-500"></i> Performance Individual (Média Mensal)
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-1 flex flex-col items-center justify-center p-6 bg-indigo-50 rounded-2xl border border-indigo-100">
+                            <span class="text-5xl font-bold text-indigo-900">257</span>
+                            <span class="text-xs font-bold text-indigo-400 uppercase mt-2">Atividades/Advogado</span>
+                        </div>
+                        <div class="md:col-span-2 space-y-6">
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-sm font-semibold text-gray-700">Média Geral por Advogado</span>
-                                    <span class="text-sm font-bold text-indigo-600">257 Atividades</span>
-                                </div>
-                                <div class="w-full bg-gray-100 rounded-full h-3">
-                                    <div class="bg-indigo-600 h-3 rounded-full" style="width: 100%"></div>
-                                </div>
+                                <div class="flex justify-between mb-2"><span class="text-sm font-semibold text-gray-700">Média de Prazos</span><span class="text-sm font-bold text-rose-600">111</span></div>
+                                <div class="w-full bg-gray-100 rounded-full h-3"><div class="bg-rose-500 h-3 rounded-full" style="width: 43%"></div></div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 pt-2">
-                                <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                                    <span class="text-2xl font-bold block text-gray-800">111</span>
-                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Prazos</span>
-                                </div>
-                                <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                                    <span class="text-2xl font-bold block text-gray-800">146</span>
-                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Compromissos</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Audiências -->
-                    <div class="bg-indigo-50 p-8 rounded-3xl border border-indigo-100">
-                        <h3 class="font-bold text-indigo-900 mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-users-viewfinder text-indigo-500"></i> Gestão de Audiências
-                        </h3>
-                        <div class="flex items-center gap-10">
-                            <div class="relative w-36 h-36 rounded-full border-[12px] border-white bg-indigo-600 flex flex-col items-center justify-center text-white shadow-inner">
-                                <span class="text-3xl font-bold">218</span>
-                                <span class="text-[8px] uppercase font-bold">Total</span>
-                            </div>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="text-xs font-bold text-indigo-400 uppercase mb-1">Internas</p>
-                                    <p class="text-2xl font-bold text-indigo-900">57 <span class="text-sm font-normal text-indigo-500">(26%)</span></p>
-                                </div>
-                                <div class="h-[1px] bg-indigo-200 w-full"></div>
-                                <p class="text-xs text-indigo-600 leading-relaxed">
-                                    Foco na manutenção da pauta organizada através do sistema <strong>Seven</strong>.
-                                </p>
+                            <div>
+                                <div class="flex justify-between mb-2"><span class="text-sm font-semibold text-gray-700">Média de Compromissos</span><span class="text-sm font-bold text-indigo-600">146</span></div>
+                                <div class="w-full bg-gray-100 rounded-full h-3"><div class="bg-indigo-600 h-3 rounded-full" style="width: 57%"></div></div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: PRODUTIVIDADE INDIVIDUAL -->
+        <section id="ranking" class="content-section">
+            <div class="bg-indigo-950 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4">
+                    <h2 class="text-4xl font-bold mb-2">Produtividade individual</h2>
+                    <p class="text-indigo-300">Contagem de Responsável Prazo - Dados Consolidados</p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 py-12">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="bg-gray-50 px-8 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Responsável</span>
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Total de Atividades</span>
+                    </div>
+                    <div class="p-0 custom-scrollbar overflow-y-auto max-h-[600px]">
+                        <table class="w-full text-left">
+                            <tbody class="divide-y divide-gray-50">
+                                <tr class="hover:bg-rose-50/30 transition-colors group">
+                                    <td class="px-8 py-5 flex items-center gap-4">
+                                        <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-xs">1º</div>
+                                        <span class="font-semibold text-gray-700">Yasmin Melo Santana de Moura</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-3">
+                                            <div class="w-48 bg-gray-100 h-2 rounded-full overflow-hidden hidden sm:block">
+                                                <div class="bg-rose-500 h-full" style="width: 100%"></div>
+                                            </div>
+                                            <span class="font-bold text-indigo-900 w-10">437</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-rose-50/30 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4">
+                                        <div class="w-8 h-8 rounded-full bg-rose-50 text-rose-400 flex items-center justify-center font-bold text-xs">2º</div>
+                                        <span class="font-semibold text-gray-700">Brennon da Silva Dias</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-3">
+                                            <div class="w-48 bg-gray-100 h-2 rounded-full overflow-hidden hidden sm:block">
+                                                <div class="bg-rose-400 h-full" style="width: 84%"></div>
+                                            </div>
+                                            <span class="font-bold text-indigo-900 w-10">367</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Joana Manoela Cordeiro das Neves</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-3">
+                                            <div class="w-48 bg-gray-100 h-2 rounded-full overflow-hidden hidden sm:block">
+                                                <div class="bg-indigo-400 h-full" style="width: 51%"></div>
+                                            </div>
+                                            <span class="font-bold text-indigo-900 w-10">225</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Victoria Ellen Monteiro Barbosa</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-3">
+                                            <div class="w-48 bg-gray-100 h-2 rounded-full overflow-hidden hidden sm:block">
+                                                <div class="bg-indigo-300 h-full" style="width: 44%"></div>
+                                            </div>
+                                            <span class="font-bold text-indigo-900 w-10">195</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Valmir Andrade da Silva Junior</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-3">
+                                            <div class="w-48 bg-gray-100 h-2 rounded-full overflow-hidden hidden sm:block">
+                                                <div class="bg-indigo-200 h-full" style="width: 42%"></div>
+                                            </div>
+                                            <span class="font-bold text-indigo-900 w-10">186</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Juliany Victoria M. de Castro</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900">176</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Kaillany Weydha Santos De Souza</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900">173</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Remo R. da Costa Q. Filho</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900">150</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Amilton Moreira da Silva Júnior</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900">86</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Victor Martinelli Correia</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900 text-rose-400">31</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Múcio Melo Moura</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900 text-rose-400">14</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700 text-indigo-400 italic">WALERIANNY CAMPOS DE LIMA</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900">13</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-8 py-5 flex items-center gap-4 pl-12">
+                                        <span class="font-semibold text-gray-700">Camilla Siqueira da Silva</span>
+                                    </td>
+                                    <td class="px-8 py-5 text-right">
+                                        <span class="font-bold text-indigo-900">2</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="bg-indigo-900 text-white">
+                                <tr>
+                                    <td class="px-8 py-6 font-bold uppercase tracking-widest">Total Geral</td>
+                                    <td class="px-8 py-6 text-right text-2xl font-bold">2.055</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <p class="mt-4 text-[10px] text-gray-400 italic">* Dados extraídos conforme levantamento individual de Janeiro/2026.</p>
             </div>
         </section>
 
@@ -234,108 +366,48 @@
             <div class="bg-slate-900 text-white py-16">
                 <div class="max-w-7xl mx-auto px-4">
                     <h2 class="text-4xl font-bold mb-2 uppercase">Operacional & Equipe</h2>
-                    <p class="text-slate-400">Estrutura de colaboradores, Turnover e Ações de Melhoria</p>
+                    <p class="text-slate-400">Turnover e Ações Estratégicas</p>
                 </div>
             </div>
             
             <div class="max-w-7xl mx-auto px-4 py-12 space-y-8">
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Composição -->
                     <div class="bg-white p-8 rounded-3xl shadow-sm md:col-span-1">
                         <h3 class="font-bold text-slate-800 mb-6 border-b pb-4">Equipe</h3>
                         <ul class="space-y-4">
-                            <li class="flex justify-between items-center">
-                                <span class="text-gray-600 font-medium">Advogados</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full font-bold text-slate-700">10</span>
-                            </li>
-                            <li class="flex justify-between items-center">
-                                <span class="text-gray-600 font-medium">Assistentes</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full font-bold text-slate-700">1</span>
-                            </li>
-                            <li class="flex justify-between items-center">
-                                <span class="text-gray-600 font-medium">Estagiários</span>
-                                <span class="bg-slate-100 px-3 py-1 rounded-full font-bold text-slate-700">5</span>
-                            </li>
-                            <li class="pt-4 border-t">
-                                <div class="flex justify-between items-center text-rose-600 font-bold">
-                                    <span>Reajuste de Função</span>
-                                    <span>0</span>
-                                </div>
-                            </li>
+                            <li class="flex justify-between items-center"><span class="text-gray-600">Advogados</span><span class="font-bold">10</span></li>
+                            <li class="flex justify-between items-center"><span class="text-gray-600">Assistentes</span><span class="font-bold">1</span></li>
+                            <li class="flex justify-between items-center"><span class="text-gray-600">Estagiários</span><span class="font-bold">5</span></li>
                         </ul>
                     </div>
 
-                    <!-- Turnover -->
                     <div class="bg-white p-8 rounded-3xl shadow-sm md:col-span-2">
-                        <h3 class="font-bold text-slate-800 mb-6 border-b pb-4 flex items-center justify-between">
-                            Turnover & Movimentações
-                            <span class="text-[10px] bg-rose-50 text-rose-600 px-2 py-1 rounded">Janeiro 2026</span>
-                        </h3>
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <p class="text-[10px] font-bold text-rose-500 uppercase mb-2">Encerramento de Vínculo</p>
-                                <div class="flex items-center gap-3 text-sm text-gray-600 bg-gray-50 p-3 rounded-xl italic">
-                                    <i class="fa-solid fa-user-minus text-rose-300"></i> Victor Martinelli Correia (VMC)
-                                </div>
-                                <div class="flex items-center gap-3 text-sm text-gray-600 bg-gray-50 p-3 rounded-xl italic">
-                                    <i class="fa-solid fa-user-minus text-rose-300"></i> Múcio Melo Moura (MMM)
-                                </div>
-                                <div class="flex items-center gap-3 text-sm text-gray-600 bg-gray-50 p-3 rounded-xl italic">
-                                    <i class="fa-solid fa-user-minus text-rose-300"></i> Kaillany Weydha Santos De Souza (KWS)
-                                </div>
-                                <div class="flex items-center gap-3 text-sm text-gray-600 bg-gray-50 p-3 rounded-xl italic">
-                                    <i class="fa-solid fa-user-minus text-rose-300"></i> Ruanny Torres (RTS)
+                        <h3 class="font-bold text-slate-800 mb-6 border-b pb-4">Movimentações do Mês</h3>
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-[10px] font-bold text-rose-500 uppercase mb-3 tracking-tighter">Encerramento de Vínculo</p>
+                                <div class="space-y-2 text-xs text-gray-500 italic">
+                                    <p>• Victor Martinelli Correia</p>
+                                    <p>• Múcio Melo Moura</p>
+                                    <p>• Kaillany Weydha Santos De Souza</p>
+                                    <p>• Ruanny Torres</p>
                                 </div>
                             </div>
-                            <div class="space-y-2">
-                                <p class="text-[10px] font-bold text-indigo-500 uppercase mb-2">Migração de Equipe</p>
-                                <div class="flex items-center gap-3 text-sm text-indigo-900 bg-indigo-50 p-3 rounded-xl font-medium">
-                                    <i class="fa-solid fa-right-left text-indigo-400"></i> Walerianny C. de Lima (WCL)
-                                </div>
-                                <p class="text-[10px] text-gray-400 mt-1 pl-3">* Cetelem para Serasa</p>
+                            <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+                                <p class="text-[10px] font-bold text-indigo-500 uppercase mb-2">Migração</p>
+                                <p class="text-sm font-semibold text-indigo-950">Walerianny C. de Lima</p>
+                                <p class="text-[10px] text-indigo-400 mt-1">Equipe Cetelem → Serasa</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Ações e Pendentes -->
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-emerald-50 p-8 rounded-3xl border border-emerald-100">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="bg-emerald-500 text-white w-10 h-10 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <h3 class="font-bold text-emerald-900">Status de Pendências</h3>
-                        </div>
-                        <p class="text-emerald-700 font-bold text-xl mb-2">Não há pendentes.</p>
-                        <p class="text-sm text-emerald-600 leading-relaxed">
-                            Política de pauta organizada (Sistema Seven), evitando prazos ou compromissos em atraso. O Kanban não é utilizado para esta operação.
-                        </p>
+                <div class="bg-emerald-50 p-8 rounded-3xl border border-emerald-100 flex items-center justify-between">
+                    <div>
+                        <h3 class="font-bold text-emerald-900 mb-1">Status de Pendências</h3>
+                        <p class="text-emerald-600 text-sm">Não há pendentes. Pauta organizada via Seven.</p>
                     </div>
-
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                        <h3 class="font-bold text-slate-800 mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap text-rose-500"></i> Ações Iniciadas em Janeiro
-                        </h3>
-                        <ul class="space-y-4">
-                            <li class="flex gap-4 items-start">
-                                <div class="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 flex-shrink-0"></div>
-                                <p class="text-sm text-gray-600">Treinamentos individualizados (presenciais/duplas) em organização e gestão.</p>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <div class="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 flex-shrink-0"></div>
-                                <p class="text-sm text-gray-600">Orientação prática: uso de planilhas e organização do fluxo.</p>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <div class="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 flex-shrink-0"></div>
-                                <p class="text-sm text-gray-600 font-bold text-emerald-600">Resultado: enquadramento total no SLA do cliente.</p>
-                            </li>
-                            <li class="flex gap-4 items-start">
-                                <div class="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 flex-shrink-0"></div>
-                                <p class="text-sm text-gray-500 italic">Três advogados em fase final de treinamento para ampliação de margem de SLA.</p>
-                            </li>
-                        </ul>
-                    </div>
+                    <i class="fa-solid fa-circle-check text-4xl text-emerald-500"></i>
                 </div>
             </div>
         </section>
@@ -344,34 +416,24 @@
 
     <footer class="bg-white border-t border-gray-100 py-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Relatório Mensal de Performance Jurídica</p>
-            <p class="text-gray-300 text-[10px] mt-2 italic font-mono">Dados extraídos em 01/2026</p>
+            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Relatório Mensal de Performance Jurídica | Serasa 2026</p>
         </div>
     </footer>
 
     <script>
         function showSection(sectionId) {
-            // Esconde todas as secções
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
-            
-            // Mostra a secção alvo
             const target = document.getElementById(sectionId);
-            if (target) {
-                target.classList.add('active');
-            }
+            if (target) { target.classList.add('active'); }
 
-            // Atualiza os estilos das abas
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('tab-active');
             });
             const activeBtn = document.getElementById('btn-' + sectionId);
-            if (activeBtn) {
-                activeBtn.classList.add('tab-active');
-            }
+            if (activeBtn) { activeBtn.classList.add('tab-active'); }
 
-            // Rola para o topo
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
